@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX App</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
+  </head>
+  <body>
+    <h1>HTMX + GO App</h1>
+    <form hx-post="todo" hx-trigger="submit" hx-target="#todo-list" hx-swap="afterbegin" hx-on::after-request="this.reset()">
+      <input type="text" name="title" required/>
+      <button type="submit">Create Todo</button>
+    </form>
+
+    <ul id="todo-list" hx-get="/todos" hx-trigger="load">
+
+    </ul>
+  </body>
+</html>
